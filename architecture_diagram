@@ -1,0 +1,72 @@
+digraph "My Architecture" {
+	graph [fontcolor="#2D3436" fontname="Sans-Serif" fontsize=15 label="My Architecture" nodesep=0.60 pad=2.0 rankdir=LR ranksep=0.75 splines=ortho]
+	node [fixedsize=true fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 height=1.4 imagescale=true labelloc=b shape=box style=rounded width=1.4]
+	edge [color="#7B8894"]
+	subgraph "cluster_Load Balancer" {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label="Load Balancer" labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+		"5d3aaeef0b7843afa22fe484bf51d780" [label="Load Balancer" height=1.9 image="/Users/peyman.kurehpaz/PycharmProjects/pythonProject/venv/lib/python3.10/site-packages/resources/aws/network/elastic-load-balancing.png" shape=none]
+	}
+	subgraph cluster_Frontend {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label=Frontend labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+		"126ed19ed0634588bee4c16b5c71ebb9" [label="Main Website (Nuxt.js)" height=1.9 image="/Users/peyman.kurehpaz/PycharmProjects/pythonProject/venv/lib/python3.10/site-packages/resources/programming/framework/vue.png" shape=none]
+		"543bb4f2bc7448958d98fefcf517f581" [label="Dashboard (Vue.js)" height=1.9 image="/Users/peyman.kurehpaz/PycharmProjects/pythonProject/venv/lib/python3.10/site-packages/resources/programming/framework/vue.png" shape=none]
+	}
+	subgraph "cluster_Backend Services" {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label="Backend Services" labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+		ba8f3d5ccf49483cad196cbe2e55c871 [label="Auth Service" height=1.9 image="/Users/peyman.kurehpaz/PycharmProjects/pythonProject/venv/lib/python3.10/site-packages/resources/programming/framework/laravel.png" shape=none]
+		bbf815b081584a94ba7e83957e0afb27 [label="Project Management" height=1.9 image="/Users/peyman.kurehpaz/PycharmProjects/pythonProject/venv/lib/python3.10/site-packages/resources/programming/framework/laravel.png" shape=none]
+		"6f8ad333125c44158fe63e15696f117b" [label="Presentation Builder" height=1.9 image="/Users/peyman.kurehpaz/PycharmProjects/pythonProject/venv/lib/python3.10/site-packages/resources/programming/framework/laravel.png" shape=none]
+		"69fcc16381f94a9b9e3cab416c5a85ee" [label="Media Server" height=1.9 image="/Users/peyman.kurehpaz/PycharmProjects/pythonProject/venv/lib/python3.10/site-packages/resources/programming/framework/laravel.png" shape=none]
+	}
+	subgraph "cluster_Database Cluster" {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label="Database Cluster" labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+		c057b4f4558c4c32bfae615960c7e3a5 [label="User Database" height=1.9 image="/Users/peyman.kurehpaz/PycharmProjects/pythonProject/venv/lib/python3.10/site-packages/resources/onprem/database/mysql.png" shape=none]
+		f1c3d9c090e442f69d0913bea097b016 [label="Project Database" height=1.9 image="/Users/peyman.kurehpaz/PycharmProjects/pythonProject/venv/lib/python3.10/site-packages/resources/onprem/database/mysql.png" shape=none]
+		"988701cb66ea4ccda87da8de55e186fb" [label="Media Database" height=1.9 image="/Users/peyman.kurehpaz/PycharmProjects/pythonProject/venv/lib/python3.10/site-packages/resources/onprem/database/mysql.png" shape=none]
+	}
+	subgraph "cluster_Cache & Queue" {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label="Cache & Queue" labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+		"369dedaafcc842d5b226315a4406ae1a" [label=Cache height=1.9 image="/Users/peyman.kurehpaz/PycharmProjects/pythonProject/venv/lib/python3.10/site-packages/resources/onprem/inmemory/redis.png" shape=none]
+		"7335c691a38e467f9ca6cd22deaf5eb7" [label="Async Queue" height=1.9 image="/Users/peyman.kurehpaz/PycharmProjects/pythonProject/venv/lib/python3.10/site-packages/resources/onprem/inmemory/redis.png" shape=none]
+	}
+	subgraph cluster_Storage {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label=Storage labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+		"08ce3d3bf7a740c8977857c2adce1cf9" [label="Image/File Storage" height=1.9 image="/Users/peyman.kurehpaz/PycharmProjects/pythonProject/venv/lib/python3.10/site-packages/resources/aws/storage/simple-storage-service-s3.png" shape=none]
+	}
+	subgraph "cluster_External Services" {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label="External Services" labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+		"04cc3b58f8bf40d1a28ac6734e72a46d" [label=Email height=1.9 image="/Users/peyman.kurehpaz/PycharmProjects/pythonProject/venv/lib/python3.10/site-packages/resources/generic/blank/blank.png" shape=none]
+	}
+	subgraph "cluster_CI/CD" {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label="CI/CD" labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+		c28b8f11fbe44cf094c381a32e092db9 [label="CI/CD Pipeline" height=1.9 image="/Users/peyman.kurehpaz/PycharmProjects/pythonProject/venv/lib/python3.10/site-packages/resources/onprem/ci/jenkins.png" shape=none]
+	}
+	"5d3aaeef0b7843afa22fe484bf51d780" -> "126ed19ed0634588bee4c16b5c71ebb9" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"5d3aaeef0b7843afa22fe484bf51d780" -> "543bb4f2bc7448958d98fefcf517f581" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"5d3aaeef0b7843afa22fe484bf51d780" -> ba8f3d5ccf49483cad196cbe2e55c871 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"5d3aaeef0b7843afa22fe484bf51d780" -> bbf815b081584a94ba7e83957e0afb27 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"5d3aaeef0b7843afa22fe484bf51d780" -> "6f8ad333125c44158fe63e15696f117b" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"5d3aaeef0b7843afa22fe484bf51d780" -> "69fcc16381f94a9b9e3cab416c5a85ee" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"126ed19ed0634588bee4c16b5c71ebb9" -> ba8f3d5ccf49483cad196cbe2e55c871 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"543bb4f2bc7448958d98fefcf517f581" -> ba8f3d5ccf49483cad196cbe2e55c871 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"543bb4f2bc7448958d98fefcf517f581" -> bbf815b081584a94ba7e83957e0afb27 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"543bb4f2bc7448958d98fefcf517f581" -> "6f8ad333125c44158fe63e15696f117b" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"543bb4f2bc7448958d98fefcf517f581" -> "69fcc16381f94a9b9e3cab416c5a85ee" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	ba8f3d5ccf49483cad196cbe2e55c871 -> c057b4f4558c4c32bfae615960c7e3a5 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	bbf815b081584a94ba7e83957e0afb27 -> f1c3d9c090e442f69d0913bea097b016 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"6f8ad333125c44158fe63e15696f117b" -> f1c3d9c090e442f69d0913bea097b016 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"69fcc16381f94a9b9e3cab416c5a85ee" -> "988701cb66ea4ccda87da8de55e186fb" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	ba8f3d5ccf49483cad196cbe2e55c871 -> "369dedaafcc842d5b226315a4406ae1a" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	bbf815b081584a94ba7e83957e0afb27 -> "369dedaafcc842d5b226315a4406ae1a" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"6f8ad333125c44158fe63e15696f117b" -> "369dedaafcc842d5b226315a4406ae1a" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"69fcc16381f94a9b9e3cab416c5a85ee" -> "369dedaafcc842d5b226315a4406ae1a" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"6f8ad333125c44158fe63e15696f117b" -> "7335c691a38e467f9ca6cd22deaf5eb7" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"69fcc16381f94a9b9e3cab416c5a85ee" -> "7335c691a38e467f9ca6cd22deaf5eb7" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"6f8ad333125c44158fe63e15696f117b" -> "08ce3d3bf7a740c8977857c2adce1cf9" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"69fcc16381f94a9b9e3cab416c5a85ee" -> "08ce3d3bf7a740c8977857c2adce1cf9" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	ba8f3d5ccf49483cad196cbe2e55c871 -> "04cc3b58f8bf40d1a28ac6734e72a46d" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	c28b8f11fbe44cf094c381a32e092db9 -> ba8f3d5ccf49483cad196cbe2e55c871 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	c28b8f11fbe44cf094c381a32e092db9 -> bbf815b081584a94ba7e83957e0afb27 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	c28b8f11fbe44cf094c381a32e092db9 -> "6f8ad333125c44158fe63e15696f117b" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	c28b8f11fbe44cf094c381a32e092db9 -> "69fcc16381f94a9b9e3cab416c5a85ee" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+}

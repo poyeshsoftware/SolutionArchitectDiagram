@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  diagram-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./output:/app/output  # map the output directory to your local machine
